@@ -8,6 +8,9 @@ const app = express();
 // como template engine 
 app.set('view engine','ejs')
 
+//Verificando se a requisição é para um arquivo da pasta public
+app.use(express.static("public"))
+
 // Importando o roteador que lida com as rotas de pizza
 const PizzasRouter = require('./routes/PizzasRouter')
 
