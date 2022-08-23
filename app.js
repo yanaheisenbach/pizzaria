@@ -4,6 +4,10 @@ const express = require('express');
 // Criando a aplicação express
 const app = express();
 
+// Config a aplicação express para usar o EJS
+// como template engine 
+app.set('view engine','ejs')
+
 // Importando o roteador que lida com as rotas de pizza
 const PizzasRouter = require('./routes/PizzasRouter')
 
