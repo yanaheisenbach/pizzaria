@@ -5,7 +5,17 @@ const pizzas = require('../database/pizzas.json');
 module.exports = {
 
     index: (req, res) => {
-        res.render('index.ejs');
+        res.render('index.ejs', {pizzas});
+    },
+
+    show: (req,res) => {
+        let id = req.params.id 
+        let pizza = pizzas.find(p => p.id ==id)
+        res.render('show.ejs', {pizza})
+    },
+
+    search: (req,res) => {
+        res.render('', {} )
     }
 
-}
+} 

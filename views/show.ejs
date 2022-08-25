@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Pizzaria Fantástica></title>
+	<link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="/css/styles.css">
+</head>
+<body>
+<link rel="stylesheet" href="/css/show.css">
+	<main>
+		<h1><%=pizza.nome%></h1>
+		<h2>R$<%=pizza.preco%></h2>
+		<img src="<%=pizza.img%>" alt="<%=pizza.nome%>">
+		<div><%=pizza.ingredientes%></div>
+		<button>+ Add</button>
+		
+		
+		<a href="/pizzas/2" class="prev">&lt;</a>
+		
+
+		
+		<a href="/pizzas/4" class="next">&gt;</a>
+		
+	</main>
+	
+</body>
+</html>
