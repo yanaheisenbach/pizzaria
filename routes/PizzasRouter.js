@@ -10,9 +10,11 @@ const PizzasController = require('../controllers/PizzasController');
 // Criando rota que encaminha requisição para o PizzasController.index
 router.get('/', PizzasController.index)
 
+router.get('/busca', PizzasController.search)
+
 router.get('/:id', PizzasController.show)
 
-router.get('/busca', PizzasController.search)
+
 
 // Exportando o roteador
 module.exports = router;

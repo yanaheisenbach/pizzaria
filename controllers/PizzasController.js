@@ -15,7 +15,10 @@ module.exports = {
     },
 
     search: (req,res) => {
-        res.render('', {} )
+        
+        let search = req.query.q
+        let pizzasSearch= pizzas.filter(p => p.nome.includes(search))   
+        res.render('index.ejs', {pizzas: pizzasSearch} )
     }
 
 } 
