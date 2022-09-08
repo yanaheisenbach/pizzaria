@@ -25,7 +25,7 @@ function PontuaPizza(req, res, next) {
     const path = require('path');
     let caminhoDoArquivo= path.resolve('./database/pizzas.json')
     
-    fs.writeFileSync(caminhoDoArquivo, JSON.stringify(pizzas));    
+    fs.writeFileSync(caminhoDoArquivo, JSON.stringify(pizzas, null, 4));    
     // Passar a bola para o próximo middleware
         next();
 
