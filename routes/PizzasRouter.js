@@ -15,6 +15,8 @@ router.get('/busca', PizzasController.search)
 
 router.get('/:id', PontuaPizza, PizzasController.show)
 
+router.post('/addCart', PizzasController.addCart)
+//Recebe dois parâmetros, endereço de rota e 
 
 
 // Exportando o roteador

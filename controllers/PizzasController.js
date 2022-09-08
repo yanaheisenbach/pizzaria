@@ -19,6 +19,10 @@ module.exports = {
         let search = req.query.q
         let pizzasSearch= pizzas.filter(p => p.nome.includes(search))   
         res.render('index.ejs', {pizzas: pizzasSearch} )
+    },
+
+    addCart : (req, res) => {
+        res.send('add pizzas aqui'+ req.body.aEscolhida)
     }
 
 } 

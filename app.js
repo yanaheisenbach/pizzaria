@@ -1,5 +1,7 @@
 // Importando o express
 const express = require('express');
+const session= require('express-session')
+const RegistraHoraAcesso = require('./middlewares/RegistraHoraAcesso')
 
 // Criando a aplicação express
 const app = express();
@@ -8,14 +10,24 @@ const app = express();
 // como template engine 
 app.set('view engine','ejs')
 
-//Verificando se a requisição é para um arquivo da pasta public
-app.use(express.static("public"))
+//Cookies e session com express-session, também são middles universais 
+app.use(
+    session({
+        secret: 'CHAVE-SECRETA',
+        resave: false,
+        saveUninitialized: true,
+        })
+)
 
 //Declaração de Middlewares globais 
 
-const RegistraHoraAcesso = require('./middlewares/RegistraHoraAcesso')
-app.use(RegistraHoraAcesso)
+    //Verificando se a requisição é para um arquivo da pasta public
+    app.use(express.static("public"))
+    
+    //Processa os formulários do tipo post e organiza as info no req.body
+    app.use(express.urlencoded({ extended: false }));   
 
+    app.use(RegistraHoraAcesso)
 
 // Importando o roteador que lida com as rotas de pizza
 const PizzasRouter = require('./routes/PizzasRouter')
