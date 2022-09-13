@@ -50,7 +50,7 @@
         "preco": 33.5,
         "img": "/img/marguerita.jpg",
         "destaque": false,
-        "score": 1
+        "score": 2
     },
     {
         "id": 5,
@@ -78,7 +78,7 @@
         "preco": 40.5,
         "img": "/img/quatroqueijos.jpg",
         "destaque": true,
-        "score": 1
+        "score": 2
     },
     {
         "id": 7,

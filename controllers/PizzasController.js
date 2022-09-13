@@ -5,7 +5,14 @@ const pizzas = require('../database/pizzas.json');
 module.exports = {
 
     index: (req, res) => {
-        res.render('index.ejs', {pizzas});
+
+        //
+        let quantidade=0;
+        if(req.session.pizzas){
+            quantidade= req.session.pizzas.length;
+        }
+
+        res.render('index.ejs', {pizzas, quantidade});
     },
 
     show: (req,res) => {
@@ -16,13 +23,36 @@ module.exports = {
 
     search: (req,res) => {
         
+        let quantidade=0;
+        if(req.session.pizzas){
+            quantidade= req.session.pizzas.length;
+        }
+
+
         let search = req.query.q
         let pizzasSearch= pizzas.filter(p => p.nome.includes(search))   
-        res.render('index.ejs', {pizzas: pizzasSearch} )
+        res.render('index.ejs', {pizzas: pizzasSearch, quantidade} )
     },
 
     addCart : (req, res) => {
-        res.send('add pizzas aqui'+ req.body.aEscolhida)
+       // res.send('add pizzas aqui'+ req.body.aEscolhida)
+       if(req.session.pizzas){
+            req.session.pizzas.push(req.body.aEscolhida);
+       } else {
+        req.session.pizzas = [req.body.aEscolhida]
+       }
+
+       res.redirect('/pizzas')
+       console.log(req.session)
+       
+    },
+
+    showCart: (req,res) => {
+        // Levantar do array de pizzas as pizzas que estão na session;
+
+        // Renderizar pizzas.ejs, passando as pizzas que estão no carrinho, e não os ids;
+
+        res.render('cart.ejs')
     }
 
 } 

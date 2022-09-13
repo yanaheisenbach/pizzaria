@@ -13,6 +13,8 @@ router.get('/', PizzasController.index)
 
 router.get('/busca', PizzasController.search)
 
+router.get('/cart', PizzasController.showCart)
+
 router.get('/:id', PontuaPizza, PizzasController.show)
 
 router.post('/addCart', PizzasController.addCart)
