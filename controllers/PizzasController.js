@@ -48,8 +48,9 @@ module.exports = {
     },
 
     showCart: (req,res) => {
-        // Levantar do array de pizzas as pizzas que estão na session;
+
         
+        // Levantar do array de pizzas as pizzas que estão na session;
         let idsNoCarrinho = req.session.pizzas;
         
         let getPizzaById = (id) => {
@@ -65,5 +66,6 @@ module.exports = {
        // res.send(pizzasNoCarrinho)
         res.render('cart.ejs', {pizzasNoCarrinho, usuarioLogado})
     }
+        
 
 } 
